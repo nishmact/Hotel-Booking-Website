@@ -74,7 +74,14 @@ const ImagesSection = ({ existingImageUrls = [] }: ImagesSectionProps) => {
     const index = imageUrls.indexOf(imageUrl);
     if (index > -1) {
       // Update imageUrls and imageFiles by filtering out the deleted image
-      setImageUrls((prevUrls) => prevUrls.filter((url, i) => i !== index));
+      setImageUrls((prevUrls) => {
+        return prevUrls.filter((url, i) => {
+          console.log(url); // Log each URL being processed
+          return i !== index;
+        });
+      });
+      
+    
       setImageFiles((prevFiles) => {
         const newFiles = prevFiles.filter((_, i) => i !== index);
         setValue("imageFiles", newFiles); // Sync with form state after deletion
@@ -89,7 +96,8 @@ const ImagesSection = ({ existingImageUrls = [] }: ImagesSectionProps) => {
       <div className="border rounded p-4 flex flex-col gap-4">
         {imageUrls.length > 0 && (
           <div className="grid grid-cols-6 gap-4">
-            {imageUrls.map((url, index) => (
+            {imageUrls.map((url) => (
+              
               <div className="relative group" key={url}>
                 <img src={url} alt="Uploaded preview" className="min-h-full object-cover" />
                 <button

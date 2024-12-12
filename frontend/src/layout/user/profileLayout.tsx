@@ -23,6 +23,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const user = useSelector((state: UserState) => state.user.userdata);
+  console.log(user)
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
