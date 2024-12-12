@@ -45,12 +45,6 @@ const sessionMiddleware: RequestHandler = session({
 const app = express();
 const server = createServer(app)
 
-const corsOptions = {
-  origin: ['http://localhost:3000'], // Allow only this origin
-  credentials: true, // Allow credentials
-};
-
-app.use(cors(corsOptions));
 //app.use(morgan("dev"));
 
 app.use(express.json());
