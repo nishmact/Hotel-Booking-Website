@@ -35,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const handleLogout = () => {
     axiosInstance
-      .get("http://localhost:8001/api/user/logout")
+      .get("http://localhost:3000/api/user/logout")
       .then(() => {
         dispatch(logout());
         navigate(`${USER.LOGIN}`);
