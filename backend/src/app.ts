@@ -89,8 +89,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-server.listen(3000, () => {
-  console.log("server running on localhost:3000");
+server.listen(8001, () => {
+  console.log("server running on localhost:8001");
 });
 
 
