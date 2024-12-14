@@ -7,7 +7,7 @@ const HotelBooking = () => {
       <section
         className="relative bg-cover bg-center"
         style={{
-          backgroundImage: "url('/dist/imgs/homeImg2.jpg')",
+          backgroundImage: "url('/public/images/homeImg2.jpg')",
           height: "500px",
         }}
       >
