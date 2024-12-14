@@ -6,7 +6,7 @@ import express, {
 } from "express";
 import cors from "cors";
 import "dotenv/config";
-import adminRoutes from "../src/routes/adminRoutes";
+import adminRoutes from "./routes/adminRoutes";
 import mongoose from "mongoose";
 import session from "express-session";
 import userRoutes from "./routes/userRoutes";
