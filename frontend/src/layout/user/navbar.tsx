@@ -33,7 +33,7 @@ const NavbarComponent = () => {
   const handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     axiosInstance
-      .get("http://localhost:3000/api/user/logout")
+      .get("http://localhost:3001/api/user/logout")
       .then(() => {
         dispatch(logout());
         navigate(`${USER.LOGIN}`);
