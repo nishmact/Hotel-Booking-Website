@@ -71,6 +71,6 @@ app.use((err, req, res, next) => {
     console.error(err.stack); // Log error stack trace
     res.status(500).json({ error: "Something went wrong!" });
 });
-server.listen(3001, () => {
-    console.log("server running on localhost:3001");
+server.listen(3000, () => {
+    console.log("server running on localhost:3000");
 });
