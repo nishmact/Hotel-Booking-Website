@@ -6,6 +6,7 @@ dotenv.config(); // This loads the variables from the .env file into process.env
 
 export const connectDB = async () => {
     try {
+        console.log(`Connecting to MongoDB at URL: ${process.env.MONGODB_CONNECTION_STRING}`);
         if (!process.env.MONGODB_CONNECTION_STRING) {
             throw new Error('MONGODB_CONNECTION_STRING is not defined');
         }

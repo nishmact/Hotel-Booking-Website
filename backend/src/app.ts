@@ -91,13 +91,16 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-const start = () => {
-
-  server.listen(3000, () => {
-    console.log(`Server running on 3000...`);
-    connectDB();
-  });
-
+const start = async () => {
+  try {
+    server.listen(3000, () => {
+      console.log("Server running on 3000...");
+    });
+    await connectDB();
+    console.log("Connected to the database successfully");
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 start();
