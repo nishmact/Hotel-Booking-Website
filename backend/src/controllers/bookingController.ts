@@ -7,13 +7,9 @@ import Booking, { bookingDocument } from "../models/bookingModel";
 class BookingController {
   async bookAnEvent(req: Request, res: Response): Promise<void> {
     try {
-      console.log("book an event")
       const vendorId: string = req.query.vendorId as string;
       const roomId: string = req.query.roomId as string;
       const userId: string = req.query.userId as string;
-
-      console.log("vendorId-", vendorId);
-      console.log("roomId-", roomId);
 
       const { checkIn, checkOut, adultCount, childCount } = req.body;
 
@@ -52,7 +48,7 @@ class BookingController {
           if (error instanceof CustomError && error.statusCode === 400) {
             res.status(400).json({ message: error.message });
           }
-          console.error("Error acquiring lock:", error);
+
           res.status(400).json({
             message: "Sorry, this date range is currently not available.",
           });
@@ -103,11 +99,11 @@ class BookingController {
       const vendorId: string = req.query.vendorId as string;
       const page: number = parseInt(req.query.page as string) || 1;
       const pageSize: number = parseInt(req.query.pageSize as string) || 8;
-      console.log("Fetching bookings for vendorId:", vendorId, "page:", page, "pageSize:", pageSize);
+
       const { bookings, totalBookings } =
         await BookingService.getAllBookingsByVendor(vendorId, page, pageSize);
       const totalPages = Math.ceil(totalBookings / pageSize);
-      console.log("bookings...",bookings)
+
       res.status(201).json({ bookings, totalPages: totalPages });
     } catch (error) {
       handleError(res, error, "getBookingsByVendor");

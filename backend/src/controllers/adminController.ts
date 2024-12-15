@@ -23,7 +23,7 @@ class AdminController {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
       });
-      // console.log("AdminData...",adminData)
+     
       res.status(200).json({ refreshToken, token, adminData, message });
     } catch (error) {
       handleError(res, error, "Adminlogin");

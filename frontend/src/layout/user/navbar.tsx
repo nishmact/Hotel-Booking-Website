@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { USER } from "../../config/constants/constants";
 import UserRootState from "../../redux/rootstate/UserState";
 import { FaSignOutAlt } from "react-icons/fa"; // Import logout icon from react-icons
-
+const BASE_URL = import.meta.env.VITE_BASE_URL || "";
 const NavbarComponent = () => {
   const user = useSelector((state: UserRootState) => state.user.userdata);
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const NavbarComponent = () => {
   const handleLogout = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     axiosInstance
-      .get("http://localhost:3000/api/user/logout")
+      .get(`${BASE_URL}/api/user/logout`)
       .then(() => {
         dispatch(logout());
         navigate(`${USER.LOGIN}`);

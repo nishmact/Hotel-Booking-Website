@@ -6,7 +6,7 @@ import { handleError } from "../utils/handleError";
 class ReviewController{
     async addReview(req: Request, res: Response): Promise<void> {
         try {
-          console.log("review....")
+     
           const content = req.body.content;
           const rating: number = req.body.rating as number;
           const user_Id: string = req.body.userId as string;

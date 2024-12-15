@@ -134,7 +134,7 @@ console.log("user....",user)
                   onSuccess={(response) => {
                     axiosInstance
                       .post(
-                        "http://localhost:3000/api/user/google/login",
+                        `${BASE_URL}/api/user/google/login`,
                         response
                       )
                       .then((res) => {

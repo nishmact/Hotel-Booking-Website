@@ -118,7 +118,7 @@ const UsersTable = () => {
                   <td className="px-4 py-2">
                     <div className="flex items-center gap-3">
                     <img
-                        src={user.imageUrl || "/dist/imgs/user-default.svg"}
+                        src={user.imageUrl || "/imgs/user-default.svg"}
                         alt={user.name}
                         className="w-10 h-10 rounded-full mr-3"
                       />

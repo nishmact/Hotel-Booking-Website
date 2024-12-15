@@ -42,7 +42,7 @@ class NotificationController {
 
   async deleteNotification(req: Request, res: Response){
     try {
-      console.log(req.query)
+      
       const {id:_id, recipient } = req.query as { id: string; recipient: string };
        
       const deleteData=await NotificationService.delete(_id)

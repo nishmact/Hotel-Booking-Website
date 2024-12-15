@@ -15,7 +15,7 @@ import { axiosInstance } from "../../config/api/axiosinstance";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/slices/UserSlice";
 import UserState from "../../redux/rootstate/UserState";
-
+const BASE_URL = import.meta.env.VITE_BASE_URL || "";
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -35,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const handleLogout = () => {
     axiosInstance
-      .get("http://localhost:3000/api/user/logout")
+      .get(`${BASE_URL}/api/user/logout`)
       .then(() => {
         dispatch(logout());
         navigate(`${USER.LOGIN}`);

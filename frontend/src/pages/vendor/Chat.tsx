@@ -346,7 +346,7 @@ const Chat = () => {
                               <div className="flex sm:items-center justify-between py-3 border-b border-gray-200 p-3">
                                 <div className="flex items-center space-x-4">
                                   <img
-                                    src={user ? user?.imageUrl : ""}
+                                    src={user ? user?.imageUrl : "/imgs/user-default.svg"}
                                     alt=""
                                     className="w-10 sm:w-12 h-10 sm:h-12 rounded-full cursor-pointer"
                                   />

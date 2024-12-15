@@ -59,8 +59,7 @@ class PaymentController {
       });
 
       req.session.payment = { amount: 1000, userId, bookingId, vendorId };
-      console.log("payment...",req.session.payment)
-      console.log("Stripe session created:", session.url);
+    
       res.send({ url: session.url });
     } catch (error) {
       console.error("Stripe Session Creation Error:", error);
@@ -70,7 +69,7 @@ class PaymentController {
 
   async addPayment(req: Request, res: Response){
     try {
-      console.log("session...",req.session.payment)
+     
       const paymentData = req.session.payment;
       const amount=paymentData.amount;
       const userId=paymentData.userId;

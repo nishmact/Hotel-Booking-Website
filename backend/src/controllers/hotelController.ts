@@ -21,7 +21,7 @@ declare module "express-session" {
 class HotelController {
   async hotelSignup(req: Request, res: Response): Promise<void> {
     try {
-      console.log("Hotel.......");
+   
 
       const { email, password, name, phone, city, country } = req.body;
 
@@ -50,14 +50,13 @@ class HotelController {
           otpSetTimestamp: Date.now(),
         };
 
-        console.log("vendor signup..Before");
-        console.log(req.session);
+       
         res.status(200).json({
           message: "OTP sent to vendor's email for verification..",
           email: email,
         });
       } else {
-        console.log("Couldn't generate OTP, an error occurred, please fix !!");
+        
         res.status(500).json({
           message: `Server Error couldn't generate OTP, an error occurred, please fix !!`,
         });
@@ -69,7 +68,7 @@ class HotelController {
 
   async verifyOtp(req: Request, res: Response): Promise<void> {
     try {
-      console.log("Hotel verify...");
+     
       const otp = req.body.otp;
       const hotelData = (req.session as any).hotelData;
       const email = hotelData.email;
@@ -106,7 +105,7 @@ class HotelController {
   async getHotel(req: Request, res: Response): Promise<void> {
     try {
       const hotelId: string = req.query.hotelid as string; // or req.query.Id?.toString()
-      console.log("hotelId..", hotelId);
+      
       if (!hotelId) {
         res.status(400).json({ error: "Vendor ID is required." });
         return;

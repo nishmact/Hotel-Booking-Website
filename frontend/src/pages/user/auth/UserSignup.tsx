@@ -186,7 +186,7 @@ const UserSignup = () => {
               onSuccess={(response) => {
                 axiosInstance
                   .post(
-                    "http://localhost:3000/api/user/google/register",
+                    `${BASE_URL}/api/user/google/register`,
                     response
                   )
                   .then((res) => {
