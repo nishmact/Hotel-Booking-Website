@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const connectToMongoDB_1 = require("./db/connectToMongoDB");
 const adminRoutes_1 = __importDefault(require("./routes/adminRoutes"));
-const mongoose_1 = __importDefault(require("mongoose"));
 const express_session_1 = __importDefault(require("express-session"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const otpAuthMiddleware_1 = require("./middlewares/otpAuthMiddleware");
@@ -28,7 +28,7 @@ cloudinary_1.v2.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-mongoose_1.default.connect(process.env.MONGODB_CONNECTION_STRING);
+
 const sessionMiddleware = (0, express_session_1.default)({
     secret: "cfcyygyv",
     saveUninitialized: true,
@@ -45,10 +45,11 @@ const server = (0, http_1.createServer)(app);
 //app.use(morgan("dev"));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.use((0, cors_1.default)({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-}));
+const corsOptions = {
+    origin: ['http://localhost:3000', "https://dreamnestwebsite.shop"], // Allow only this origin
+    credentials: true, // Allow credentials
+};
+exports.app.use((0, cors_1.default)(corsOptions));
 app.use(sessionMiddleware);
 app.use(express_1.default.static(path_1.default.join(__dirname, 'public')));
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../frontend/dist')));
@@ -73,6 +74,10 @@ app.use((err, req, res, next) => {
     console.error(err.stack); // Log error stack trace
     res.status(500).json({ error: "Something went wrong!" });
 });
-server.listen(3000, () => {
-    console.log("server running on localhost:3000");
-});
+const start = () => {
+    server.listen(3000, () => {
+        console.log(`Server running on 3000...`);
+        (0, connectToMongoDB_1.connectDB)();
+    });
+};
+start();
