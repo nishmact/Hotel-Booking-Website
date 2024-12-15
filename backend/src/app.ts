@@ -5,8 +5,7 @@ import express, {
   Response,
 } from "express";
 import cors from "cors";
-import dotenv from 'dotenv';
-import { connectDB } from './db/connectToMongoDB';
+import "dotenv/config";
 import adminRoutes from "./routes/adminRoutes";
 import mongoose from "mongoose";
 import session from "express-session";
@@ -22,7 +21,6 @@ import initializeSocket from './socket';
 import {createServer} from 'http';
 //import morgan from "morgan";
 
-dotenv.config();
 // Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -30,7 +28,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 
 const sessionMiddleware: RequestHandler = session({
   secret: "cfcyygyv",
@@ -51,13 +49,12 @@ const server = createServer(app)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const corsOptions = {
-  origin: ['http://localhost:3000' ,"https://dreamnestwebsite.shop"], // Allow only this origin
-  credentials: true, // Allow credentials
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 
 app.use(sessionMiddleware);
 
@@ -92,15 +89,8 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ error: "Something went wrong!" });
 });
 
-const start = () => {
-
-  server.listen(3000, () => {
-    console.log(`Server running on 3000...`);
-    connectDB();
-  });
-
-};
-
-start();
+server.listen(3000, () => {
+  console.log("server running on localhost:3000");
+});
 
 
