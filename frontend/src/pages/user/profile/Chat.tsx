@@ -352,7 +352,7 @@ const Chat = () => {
                   {!currentchat ? (
                     <div className="mx-auto mt-20 pb-20">
                       <img
-                        src="/dist/imgs/select.svg"
+                        src="/imgs/select.svg"
                         alt=""
                         className="w-80 h-80"
                       />

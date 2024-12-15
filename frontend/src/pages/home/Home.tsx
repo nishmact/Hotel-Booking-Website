@@ -7,7 +7,7 @@ const HotelBooking = () => {
       <section
         className="relative bg-cover bg-center"
         style={{
-          backgroundImage: "url('/dist/imgs/homeImg2.jpg')",
+          backgroundImage: "url('/imgs/homeImg2.jpg')",
           height: "500px",
         }}
       >
@@ -34,7 +34,7 @@ const HotelBooking = () => {
       <section className="container mx-auto px-6 py-13">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           <img
-            src="/dist/imgs/homeImg1.jpg"
+            src="/imgs/homeImg1.jpg"
             alt="Hotel"
             className="rounded shadow-md"
           />

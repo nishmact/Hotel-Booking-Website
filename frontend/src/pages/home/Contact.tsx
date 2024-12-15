@@ -10,7 +10,7 @@ const Contact = () => {
     <>
       <div className="relative mt-15">
         <img
-          src="/dist/imgs/contacts.jpg"
+          src="/imgs/contacts.jpg"
           alt="Hotel Background"
           className="w-full h-[500px] object-cover"
         />

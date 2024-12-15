@@ -110,8 +110,8 @@ const NavbarComponent = () => {
           <img
             src={
               isScrolled
-                ? "/dist/imgs/blacklogo.jpg"
-                : "/dist/imgs/whitelogo.jpg"
+                ? "/imgs/blacklogo.jpg"
+                : "/imgs/whitelogo.jpg"
             } // Change logo based on scroll state
             alt="DreamNest Logo"
             className="h-10 w-10" // Adjust the logo size as needed

@@ -333,7 +333,7 @@ const Chat = () => {
   
                     {!currentchat ? (
                       <div className="mx-auto mt-20 pb-20">
-                        <img src="/dist/imgs/select.svg" alt="" className="w-80 h-80" />
+                        <img src="/imgs/select.svg" alt="" className="w-80 h-80" />
                         <p className="text-pink-500 text-lg font-medium ml-10 -mt-10">
                           Select a conversation
                         </p>

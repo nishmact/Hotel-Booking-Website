@@ -42,7 +42,7 @@ const AboutPage = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img
-                  src="/dist/imgs/booking.webp"
+                  src="/imgs/booking.webp"
                   alt="Secure Booking"
                   className="rounded-lg mb-4 object-cover h-48 w-full"
                 />
@@ -70,7 +70,7 @@ const AboutPage = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img
-                  src="/dist/imgs/review.jpg"
+                  src="/imgs/review.jpg"
                   alt="Reviews and Ratings"
                   className="rounded-lg mb-4 object-cover h-48 w-full"
                 />
@@ -84,7 +84,7 @@ const AboutPage = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img
-                  src="/dist/imgs/customer.jpg"
+                  src="/imgs/customer.jpg"
                   alt="Customer Support"
                   className="rounded-lg mb-4 object-cover h-48 w-full"
                 />
@@ -98,7 +98,7 @@ const AboutPage = () => {
               </div>
               <div className="flex flex-col items-center">
                 <img
-                  src="/dist/imgs/userfriendly.jpg"
+                  src="/imgs/userfriendly.jpg"
                   alt="Easy to Use"
                   className="rounded-lg mb-4 object-cover h-48 w-full"
                 />
