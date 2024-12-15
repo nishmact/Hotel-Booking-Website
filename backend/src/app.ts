@@ -51,13 +51,12 @@ const server = createServer(app)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const corsOptions = {
-  origin: ['http://localhost:3000' ,"https://dreamnestwebsite.shop"], // Allow only this origin
-  credentials: true, // Allow credentials
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 
 app.use(sessionMiddleware);
 
