@@ -164,7 +164,7 @@ const NavbarComponent = () => {
                 <Link to={`${USER.PROFILE}`} onClick={handleMenuClick}>
                   <img
                     className="w-8 h-8 rounded-full cursor-pointer"
-                    src={user?.imageUrl || "/dist/imgs/user-default.svg"}
+                    src={user?.imageUrl || "/imgs/user-default.svg"}
                     alt={user?.name}
                   />
                 </Link>
@@ -209,7 +209,7 @@ const NavbarComponent = () => {
               <Link to={`${USER.PROFILE}`}>
                 <img
                   className="w-8 h-8 rounded-full cursor-pointer"
-                  src={user?.imageUrl || "/dist/imgs/user-default.svg"}
+                  src={user?.imageUrl || "/imgs/user-default.svg"}
                   alt={user?.name}
                 />
               </Link>
