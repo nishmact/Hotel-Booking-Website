@@ -8,7 +8,6 @@ import cors from "cors";
 import dotenv from 'dotenv';
 import { connectDB } from './db/connectToMongoDB';
 import adminRoutes from "./routes/adminRoutes";
-import mongoose from "mongoose";
 import session from "express-session";
 import userRoutes from "./routes/userRoutes";
 import { userOtpExpiration } from "./middlewares/otpAuthMiddleware";
