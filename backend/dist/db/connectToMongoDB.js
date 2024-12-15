@@ -14,16 +14,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.connectDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
+
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (!process.env.MONGODB_CONNECTION_STRING) {
             throw new Error('MONGODB_CONNECTION_STRING is not defined');
         }
+
         const connect = yield mongoose_1.default.connect(process.env.MONGODB_CONNECTION_STRING);
-        console.log(`MongoDB Connected: ${connect.connection.host}`);
+
+        // Safely access connection details
+        const host = connect.connection.host || 'unknown host';
+        const dbName = connect.connection.name || 'unknown database';
+
+        console.log(`MongoDB Connected: Host=${host}, Database=${dbName}`);
     }
     catch (error) {
-        console.error(`Error: ${error}`);
+        console.error("Error",error);
         process.exit(1);
     }
 });
