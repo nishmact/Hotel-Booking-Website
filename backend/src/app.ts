@@ -4,8 +4,9 @@ import express, {
   RequestHandler,
   Response,
 } from "express";
-import cors from "cors";
 import dotenv from 'dotenv';
+dotenv.config();
+import cors from "cors";
 import { connectDB } from './db/connectToMongoDB';
 import adminRoutes from "./routes/adminRoutes";
 import session from "express-session";
@@ -21,7 +22,7 @@ import initializeSocket from './socket';
 import {createServer} from 'http';
 //import morgan from "morgan";
 
-dotenv.config();
+
 // Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
