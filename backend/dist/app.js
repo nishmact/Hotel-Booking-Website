@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-require("dotenv/config");
+const dotenv_1 = __importDefault(require("dotenv"));
 const adminRoutes_1 = __importDefault(require("./routes/adminRoutes"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const express_session_1 = __importDefault(require("express-session"));
@@ -19,6 +19,8 @@ const conversationRoutes_1 = __importDefault(require("./routes/conversationRoute
 const messageRoutes_1 = __importDefault(require("./routes/messageRoutes"));
 const socket_1 = __importDefault(require("./socket"));
 const http_1 = require("http");
+
+dotenv_1.default.config();
 //import morgan from "morgan";
 // Configure Cloudinary
 cloudinary_1.v2.config({
