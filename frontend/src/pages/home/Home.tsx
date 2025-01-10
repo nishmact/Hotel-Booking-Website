@@ -44,7 +44,7 @@ const HotelBooking = () => {
             </h2>
             <p className="text-gray-600 mb-6">
               Experience the ultimate in luxury and comfort at our world-class
-              hotel. Indulge in our exquisite rooms, gourmet dining, and
+              hotel. Indulges in our exquisite rooms, gourmet dining, and
               rejuvenating wellness facilities. Experience the ultimate in
               luxury and comfort at our world-class hotel. Indulge in our
               exquisite rooms, gourmet dining, and rejuvenating wellness
